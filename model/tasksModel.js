@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const taskSchema = new mongoose.Schema({
   title: {
@@ -15,4 +15,5 @@ const taskSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("Task", taskSchema); // Task is the name of the MongoDB collection that Mongoose will create.
+const taskModel = mongoose.model("Task", taskSchema); // Task is the name of the MongoDB collection that Mongoose will create.
+export default taskModel;

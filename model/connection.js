@@ -8,10 +8,10 @@ const MONGO_URI = process.env.MONGO_URI;
 const connection = async () => {
   try {
     await mongoose.connect(MONGO_URI);
-    console.log("Mongoose connection sucessful!");
+    console.log("Mongoose connection sucessfull");
   } catch (err) {
     console.log(err);
   }
 };
 
-module.exports.connection = connection;
+export default connection;
