@@ -6,7 +6,7 @@ const taskSchema = new mongoose.Schema({
     required: true,
   },
   completed: {
-    type: String,
+    type: Boolean,
     default: false, //by default tasks are not completed
   },
   createdAt: {
