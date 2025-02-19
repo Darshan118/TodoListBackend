@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import todoRoutes from "./routes/todoRoutes.js";
+import errorHandler from "./middleware/errorMiddleware.js";
+import connection from "./model/connection.js";
 
 dotenv.config();
 
@@ -17,3 +19,12 @@ app.listen(PORT, () => {
 app.use(express.json());
 
 app.use("/todos", todoRoutes); // Ensure routes.js is using `export default router`
+const connectDB = async () => {
+  try {
+    await connection();
+  } catch (err) {
+    console.log("Error connecting to mongoDB server");
+  }
+};
+connectDB();
+app.use(errorHandler);
